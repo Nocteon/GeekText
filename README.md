@@ -1,5 +1,6 @@
 # Geek-Text
 CEN4010 - Team 3 - Geek Text
+
 GeekText is a REST API that is being developed using a Java backend and Springboot framework. It uses a MySQL database to allow users to 
 store their data, browse books, and add them to a shopping cart. 
 
