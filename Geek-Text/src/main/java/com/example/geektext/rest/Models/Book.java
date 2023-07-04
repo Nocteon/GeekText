@@ -20,8 +20,9 @@ public class Book {
     @Column
     private float price;
 
-    @Column
-    private String author;
+    @JoinColumn
+    @ManyToOne
+    private Author author;
 
     @Column
     private String publisher;
@@ -80,11 +81,11 @@ public class Book {
         this.price = price;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
