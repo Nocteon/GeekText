@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Book {
 
     @Id
-    private long ISBN;
+    private String ISBN;
 
     @Column
     private String bookName;
@@ -41,11 +41,11 @@ public class Book {
         this.bookId = id;
     }
     */
-    public long getISBN() {
+    public String getISBN() {
         return ISBN;
     }
 
-    public void setISBN(long ISBN) {
+    public void setISBN(String ISBN) {
         this.ISBN = ISBN;
     }
 
