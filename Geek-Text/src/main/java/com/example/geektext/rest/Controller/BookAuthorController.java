@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-public class ApiControllers {
+public class BookAuthorController {
     //REST Setup
     @Autowired
     private BookRepo bookRepo;
