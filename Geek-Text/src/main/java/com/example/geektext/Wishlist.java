@@ -2,67 +2,46 @@ package com.example.geektext;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
+
+
 @Entity
-@Table(name = "wishlist")
 public class Wishlist {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private String wishlistId;
 
-    @Column(nullable = false)
-    private String user;
 
-    @Column(nullable = false)
-    private String title;
+    @Column(name = "user_id")
+    private String userId;
 
-    @ElementCollection
-    @CollectionTable(name = "wishlist_books", joinColumns = @JoinColumn(name = "wishlist_id"))
-    @Column(name = "book")
-    private List<String> books;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "wishlist_id")
+    private List<Book> books;
 
-    public Wishlist() {
-        this.books = new ArrayList<>();
+
+    // Getters and Setters
+    public String getWishlistId() {
+        return wishlistId;
     }
 
-    public Wishlist(String user, String title) {
-        this.user = user;
-        this.title = title;
-        this.books = new ArrayList<>();
+    public void setWishlistId(String wishlistId) {
+        this.wishlistId = wishlistId;
     }
 
-    public Long getId() {
-        return id;
+    public String getUserId() {
+        return userId;
     }
 
-    public String getUser() {
-        return user;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public List<String> getBooks() {
+    public List<Book> getBooks() {
         return books;
     }
 
-    public void addBook(String newBook) {
-        this.books.add(newBook);
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
-
-    public void removeBook(String book) {
-        this.books.remove(book);
-    }
-
 }
+
