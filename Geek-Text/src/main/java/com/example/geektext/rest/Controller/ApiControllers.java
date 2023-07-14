@@ -33,6 +33,7 @@ public class ApiControllers {
     @PutMapping(value="/update/{id}") //EXPERIMENTAL FUNCTIONALITY
     public String updateBook(@PathVariable String id,@RequestBody Book book){
         Book updatedBook = bookRepo.findById(id).get();
+        updatedBook.setBookId(book.getBookId());
         updatedBook.setBookName(book.getBookName());
         updatedBook.setAuthor(book.getAuthor());
         updatedBook.setDescription(book.getDescription());

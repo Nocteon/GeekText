@@ -3,9 +3,13 @@ package com.example.geektext.rest.Models;
 import jakarta.persistence.*;
 
 @Entity
+@Table
 public class Book {
 
     @Id
+    private String bookId;
+
+    @Column
     private String ISBN;
 
     @Column
@@ -33,14 +37,14 @@ public class Book {
     @Column
     private int sold;
 
-    /*public int getBookId() {
+    public String getBookId() {
         return bookId;
     }
 
-    public void setBookId(int id) {
+    public void setBookId(String id) {
         this.bookId = id;
     }
-    */
+
     public String getISBN() {
         return ISBN;
     }
