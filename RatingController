@@ -1,0 +1,29 @@
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Scanner;
+
+@RestController
+@RequestMapping(value = "/ratings")
+public class RatingController {
+        Scanner scanner = new Scanner(System.in);
+
+        @PostMapping
+        public ResponseEntity<?> createComment() {
+            System.out.print("Enter your User ID: ");
+            String userId = scanner.nextLine();
+
+            System.out.print("Enter the Book ID: ");
+            String bookId = scanner.nextLine();
+
+            System.out.print("Rating the book from 1 to 5: ");
+            String comment = scanner.nextLine();
+
+            String message = "Rating created successfully";
+            return new ResponseEntity<>(message, HttpStatus.CREATED);
+        }
+
+    }
