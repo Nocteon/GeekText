@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @IdClass(cartItemsId.class)
 public class cartItems {
     @Id
-    private String userId;
+    private String userId; //change from string to long
 
     public void setUserId(String userId) {
         this.userId = userId;
