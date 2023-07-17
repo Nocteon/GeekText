@@ -9,7 +9,7 @@ import java.util.List;
 public class User {
     @Id
     @Column(name = "id")
-    private String id;
+    private Long id;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "wishlist_id")
@@ -20,26 +20,33 @@ public class User {
     private List<Book> cart;
 
     // Getters and Setters
-    public String getId() {
+
+    // Get the user ID
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    // Set the user ID
+    public void setId(Long id) {
         this.id = id;
     }
 
+    // Get the user's wishlist
     public List<Book> getWishlist() {
         return wishlist;
     }
 
+    // Set the user's wishlist
     public void setWishlist(List<Book> wishlist) {
         this.wishlist = wishlist;
     }
 
+    // Get the user's cart
     public List<Book> getCart() {
         return cart;
     }
 
+    // Set the user's cart
     public void setCart(List<Book> cart) {
         this.cart = cart;
     }

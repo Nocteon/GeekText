@@ -12,6 +12,7 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
+    // Add a book to the repository
     public Book addBook(String bookId) {
         Book book = new Book();
         book.setBookId(bookId);
