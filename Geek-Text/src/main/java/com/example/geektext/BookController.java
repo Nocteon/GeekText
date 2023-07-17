@@ -16,6 +16,7 @@ public class BookController {
         this.bookService = bookService;
     }
 
+    // Add a book to the book table
     @PostMapping
     public Book addBook(@RequestParam String bookId) {
         return bookService.addBook(bookId);

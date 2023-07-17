@@ -12,7 +12,7 @@ public class Wishlist {
 
 
     @Column(name = "user_id")
-    private String userId;
+    private Long userId;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "wishlist_id")
@@ -20,26 +20,33 @@ public class Wishlist {
 
 
     // Getters and Setters
+
+    // Get the wishlist ID
     public String getWishlistId() {
         return wishlistId;
     }
 
+    // Set the wishlist ID
     public void setWishlistId(String wishlistId) {
         this.wishlistId = wishlistId;
     }
 
-    public String getUserId() {
+    // Get the user ID associated with the wishlist
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    // Set the user ID associated with the wishlist
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
+    // Get the books in the wishlist
     public List<Book> getBooks() {
         return books;
     }
 
+    // Set the books in the wishlist
     public void setBooks(List<Book> books) {
         this.books = books;
     }

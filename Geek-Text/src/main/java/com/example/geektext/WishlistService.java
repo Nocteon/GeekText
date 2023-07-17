@@ -16,13 +16,15 @@ public class WishlistService {
         this.bookRepository = bookRepository;
     }
 
-    public Wishlist createWishlist(String userId, String wishlistId) {
+    // Create a new wishlist for a user
+    public Wishlist createWishlist(Long userId, String wishlistId) {
         Wishlist wishlist = new Wishlist();
         wishlist.setUserId(userId);
         wishlist.setWishlistId(wishlistId);
         return wishlistRepository.save(wishlist);
     }
 
+    // Add a book to a wishlist
     public Wishlist addBookToWishlist(String wishlistId, String bookId) {
         Wishlist wishlist = wishlistRepository.findById(wishlistId).orElse(null);
         if (wishlist != null) {
@@ -35,6 +37,7 @@ public class WishlistService {
         return null;
     }
 
+    // Remove a book from a wishlist
     public void removeBookFromWishlist(String wishlistId, String bookId) {
         Wishlist wishlist = wishlistRepository.findById(wishlistId).orElse(null);
         if (wishlist != null) {
@@ -50,6 +53,7 @@ public class WishlistService {
         }
     }
 
+    // Get the books in a wishlist
     public List<Book> getBooksInWishlist(String wishlistId) {
         Wishlist wishlist = wishlistRepository.findById(wishlistId).orElse(null);
         if (wishlist != null) {
