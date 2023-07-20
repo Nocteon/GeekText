@@ -3,7 +3,7 @@ package com.example.geektext.Feature6Wishlist.Models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-@Entity
+@Entity(name = "WishlistBook")
 public class Book {
     @Id
     private String bookId;

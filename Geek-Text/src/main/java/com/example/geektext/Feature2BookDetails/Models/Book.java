@@ -3,7 +3,7 @@ package com.example.geektext.Feature2BookDetails.Models;
 import com.example.geektext.Feature2BookDetails.Models.Author;
 import jakarta.persistence.*;
 
-@Entity
+@Entity(name = "BookDetails")
 @Table
 public class Book {
 

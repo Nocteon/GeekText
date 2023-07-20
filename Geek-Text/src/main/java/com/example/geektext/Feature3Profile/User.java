@@ -2,7 +2,8 @@ package com.example.geektext.Feature3Profile;
 
 import jakarta.persistence.*;
 
-@Entity
+@Entity(name = "UserProfile")
+
 @Table(name = "users")
 public class User {
 
