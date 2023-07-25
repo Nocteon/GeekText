@@ -17,6 +17,10 @@ public class BookAuthorController {
     @Autowired
     private AuthorRepo authorRepo;
 
+    /*
+        EXPERIMENTAL = NOT REQUIRED BY PROJECT, WORKS
+        REQUIRED = REQUIRED FOR PROJECT AS SPECIFIED IN PROJECT ASSIGNMENT PDF
+    */
     @GetMapping(value = "/") //EXPERIMENTAL TESTER PAGE, UNNECESSARY FOR FUNCTIONALITY
     public String testPage(){return "Welcome to my test page";}
 
@@ -27,12 +31,12 @@ public class BookAuthorController {
     public Book getBook(@PathVariable String id){
         return bookRepo.findById(id).get();
     }
-    @PostMapping(value = "/addListing") //REQUIRED, MAINTAINED
+    @PostMapping(value = "/books/add") //REQUIRED, MAINTAINED
     public String saveBook(@RequestBody Book book){
         bookRepo.save(book);
         return "Saved!";
     }
-    @PutMapping(value="/update/{id}") //EXPERIMENTAL FUNCTIONALITY
+    @PutMapping(value="/books/update/{id}") //EXPERIMENTAL FUNCTIONALITY
     public String updateBook(@PathVariable String id,@RequestBody Book book){
         Book updatedBook = bookRepo.findById(id).get();
         updatedBook.setBookId(book.getBookId());
@@ -48,7 +52,7 @@ public class BookAuthorController {
         bookRepo.save(updatedBook);
         return "Updated!";
     }
-    @DeleteMapping(value = "/delete/{id}") //EXPERIMENTAL FUNCTIONALITY
+    @DeleteMapping(value = "/books/delete/{id}") //EXPERIMENTAL FUNCTIONALITY
     public String deleteBook(@PathVariable String id){
         Book deleteBook = bookRepo.findById(id).get();
         bookRepo.delete(deleteBook);
@@ -72,7 +76,7 @@ public class BookAuthorController {
     public List<Author> getAuthors() {return authorRepo.findAll();}
     @GetMapping(value = "/authors/{id}") //EXPERIMENTAL FUNCTIONALITY
     public Author getAuthor(@PathVariable int id) {return authorRepo.findById(id).get();}
-    @PostMapping(value = "/addAuthor") //REQUIRED, MAINTAINED
+    @PostMapping(value = "/authors/add") //REQUIRED, MAINTAINED
     public String saveAuthor(@RequestBody Author author){
         authorRepo.save(author);
         return "Saved!";
@@ -85,7 +89,7 @@ public class BookAuthorController {
             authorRepo.delete(deleteAuthor);
         }
         catch (Exception e){
-            return "Error: Likely, Author has dependencies that must be deleted first";
+            return "Error: Likely, Author has dependencies or Books that must be deleted first";
         }
         return "Deleted Author with id: " + id;
     }
