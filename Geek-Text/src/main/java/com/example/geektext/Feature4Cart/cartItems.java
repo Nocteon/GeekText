@@ -1,4 +1,4 @@
-package com.example.geektext.Feature4Cart;
+package com.GeekText.groupProject.model;
 
 import jakarta.persistence.*;
 
@@ -6,7 +6,8 @@ import jakarta.persistence.*;
 @IdClass(cartItemsId.class)
 public class cartItems {
     @Id
-    private String userId; //change from string to long
+    private String userId;
+    private double subtotal;
 
     public void setUserId(String userId) {
         this.userId = userId;
@@ -16,13 +17,41 @@ public class cartItems {
         return userId;
     }
     @Id
-    private String bookId;
+    private Long bookId;
 
-    public void setBookId(String bookId) {
+    public void setBookId(Long bookId) {
         this.bookId = bookId;
     }
 
-    public String getBookId(){
+    public Long getBookId(){
         return bookId;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    private double price;
+
+    private int quantity;
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
+
+    public double getSubtotal() {
+        return subtotal;
     }
 }
